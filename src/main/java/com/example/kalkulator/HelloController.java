@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -147,5 +145,20 @@ public class HelloController {
                 br.close();
             }catch (Exception e){}
         }
+    }
+
+    public void shraniCB(ActionEvent actionEvent) {
+        FileChooser fc = new FileChooser();
+        File f = fc.showSaveDialog(null);
+        if (f!=null){
+            status.setText("Uspešno shranjevanje datoteke");
+            akcija.setText("Shranjevanje datoteke" + "\n");
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(f))) {
+                bw.write(dnevnik.getText());
+                bw.close();
+
+            }catch (Exception e){}
+        }
+
     }
 }

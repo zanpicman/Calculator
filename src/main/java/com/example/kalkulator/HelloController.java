@@ -126,7 +126,8 @@ public class HelloController {
 
     public void nazajCB(ActionEvent actionEvent) {
         if (prikazovalo.getLength() > 0) {
-            if (prikazovalo.getText().charAt(prikazovalo.getLength()-1)==' ') prikazovalo.setText(prikazovalo.getText().substring(0, prikazovalo.getText().length() - 2));
+            if (prikazovalo.getText().charAt(prikazovalo.getLength() - 1) == ' ')
+                prikazovalo.setText(prikazovalo.getText().substring(0, prikazovalo.getText().length() - 2));
             else prikazovalo.setText(prikazovalo.getText().substring(0, prikazovalo.getText().length() - 1));
         }
     }
@@ -134,31 +135,52 @@ public class HelloController {
     public void odpriCB(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         File f = fc.showOpenDialog(null);
-        if (f!=null){
-            akcija.setText("Uspešno odpiranje datoteke: " + f.getAbsolutePath() + ", velikost datoteke: " + f.length() + " B");
-            String izvajanjeOperacij = "Odpiranje datoteke: " + f.getName() + "\n";
+        if (f != null) {
+            akcija.setText(akcija.getText() + "Uspešno odpiranje datoteke: " + f.getName() + ", velikost: " + f.length() + " B");
+            String izvajanjeOperacij = "Odpiranje datoteke: " + f.getName() + " " + f.length() + "B\n";
             status.setText(izvajanjeOperacij + "\n");
-            try(BufferedReader br = new BufferedReader(new FileReader(f))){
+            try (BufferedReader br = new BufferedReader(new FileReader(f))) {
                 String line;
-                while ((line=br.readLine())!=null)
-                    dnevnik.appendText(line+"\n");
+                while ((line = br.readLine()) != null)
+                    dnevnik.appendText(line + "\n");
                 br.close();
-            }catch (Exception e){}
+            } catch (Exception e) {
+                status.setText("Neuspešno odpiranje datoteke");
+                akcija.setText(akcija.getText() +"Neuspešno odpiranje datoteke");
+            }
         }
     }
 
     public void shraniCB(ActionEvent actionEvent) {
         FileChooser fc = new FileChooser();
         File f = fc.showSaveDialog(null);
-        if (f!=null){
+        if (f != null) {
             status.setText("Uspešno shranjevanje datoteke");
-            akcija.setText("Shranjevanje datoteke" + "\n");
+            akcija.setText(akcija.getText() + "Shranjevanje datoteke" + "\n");
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(f))) {
                 bw.write(dnevnik.getText());
                 bw.close();
 
-            }catch (Exception e){}
+            } catch (Exception e) {
+                status.setText("Neuspešno shranjevanje datoteke");
+                akcija.setText(akcija.getText() +"Neuspešno shranjevanje datoteke\n" );
+            }
         }
 
+    }
+
+    public void pobrisiCB(ActionEvent actionEvent) {
+        status.setText("Status: ");
+        dnevnik.setText("");
+        prikazovalo.setText("");
+
+    }
+
+    public void zapriCB(ActionEvent actionEvent) {
+        System.exit(0);
+    }
+
+    public void avtorCB(ActionEvent actionEvent) {
+        status.setText("Avtor programa: Žan Pičman");
     }
 }

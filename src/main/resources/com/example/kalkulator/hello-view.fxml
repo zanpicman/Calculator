@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
@@ -28,17 +29,17 @@
                   <items>
                     <MenuItem onAction="#odpriCB" text="_Odpri" />
                         <MenuItem onAction="#shraniCB" text="_Shrani" />
-                        <MenuItem text="_Izhod" />
+                        <MenuItem onAction="#zapriCB" text="_Izhod" />
                   </items>
                 </Menu>
                 <Menu text="_Uredi">
                   <items>
-                    <MenuItem text="_Pobriši" />
+                    <MenuItem onAction="#pobrisiCB" text="_Pobriši" />
                   </items>
                 </Menu>
                 <Menu text="_Pomoč">
                   <items>
-                    <MenuItem text="_Avtor" />
+                    <MenuItem onAction="#avtorCB" text="_Avtor" />
                   </items>
                 </Menu>
               </menus>
@@ -47,7 +48,13 @@
          <center>
             <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" text="Button" />
+                <Button mnemonicParsing="false" onAction="#odpriCB" text="Odpri" />
+                  <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="29.0" prefWidth="24.0" />
+                  <Button mnemonicParsing="false" onAction="#shraniCB" text="Shrani" />
+                  <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="29.0" prefWidth="24.0" />
+                  <Button mnemonicParsing="false" onAction="#zapriCB" text="Zapri" />
+                  <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="29.0" prefWidth="24.0" />
+                  <Button mnemonicParsing="false" onAction="#pobrisiCB" text="Pobriši" />
               </items>
             </ToolBar>
          </center>
@@ -141,7 +148,7 @@
                                     <Font size="9.0" />
                                  </font>
                               </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#dodajCB" prefHeight="26.0" prefWidth="113.0" style="-fx-font-size: 25;" text="=" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                              <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#dodajCB" prefHeight="26.0" prefWidth="116.0" style="-fx-font-size: 25;" text="=" GridPane.columnIndex="3" GridPane.rowIndex="3">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
@@ -159,7 +166,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </TextField>
-                              <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#nazajCB" prefHeight="59.0" prefWidth="56.0" text="NAZAJ" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#nazajCB" prefHeight="59.0" prefWidth="116.0" style="-fx-font-size: 18;" text="NAZAJ" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                         <TextField layoutX="6.0" layoutY="316.0" prefHeight="26.0" prefWidth="287.0" />

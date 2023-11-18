@@ -1,3 +1,4 @@
+# Calculator
 Simple calculator app built in JavaFX that calculates simple calculations.
 
 ![image](https://github.com/zanpicman/kalkulator1/assets/96843213/ade8511b-0254-4c81-b06a-8601eb1fa7a5)
